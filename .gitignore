@@ -1,0 +1,14 @@
+# Secrets and Keys
+.env
+srcs/.env
+
+# Persistent Data
+data/
+
+# IDE
+.vscode/
+.DS_Store
+*.swp
+
+# Logs
+*.log
