@@ -34,17 +34,15 @@ down:
 # Clean unused docker resources
 .PHONY: clean
 clean: down
-	@echo "$(RED)Cleaning Docker resources...$(END)"
-	@docker system prune -a
+	@echo "$(RED)Cleaning containers and images for ${NAME}...$(END)"
+	@docker-compose -f $(SRCS) down --rmi all
 
 # Deep clean: remove volumes and physical data folders
 .PHONY: fclean
 fclean: clean
-	@echo "$(RED)Deleting all data and volumes...$(END)"
+	@echo "$(RED)Deleting project volumes and data folders...$(END)"
+	@docker-compose -f $(SRCS) down -v
 	@sudo rm -rf $(DATA)
-	@if [ -n "$$(docker volume ls -q)" ]; then \
-		docker volume rm $$(docker volume ls -q); \
-	fi
 
 .PHONY: re
 re: fclean all

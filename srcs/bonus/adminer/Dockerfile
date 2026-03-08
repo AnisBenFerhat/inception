@@ -15,7 +15,7 @@ RUN 		apt-get update && apt-get install -y --no-install-recommends \
 
 RUN 		mkdir -p /var/www/html
 
-RUN 		wget "https://www.adminer.org/latest.php" -O /var/www/html/index.php
+RUN 		wget -q -O /var/www/html/index.php "https://github.com/vrana/adminer/releases/download/v5.4.2/adminer-5.4.2-mysql-en.php"
 
 RUN			chown -R www-data:www-data /var/www/html && \
 			chmod 755 /var/www/html
