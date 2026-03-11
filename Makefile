@@ -42,7 +42,8 @@ clean: down
 fclean: clean
 	@echo "$(RED)Deleting project volumes and data folders...$(END)"
 	@docker-compose -f $(SRCS) down -v
-	@sudo rm -rf $(DATA)
+	@sudo rm -rf $(DATA)/mariadb
+	@sudo rm -rf $(DATA)/wordpress
 
 .PHONY: re
 re: fclean all

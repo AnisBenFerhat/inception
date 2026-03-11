@@ -11,7 +11,7 @@ done
 if [ ! -f /var/www/html/wp-config.php ]; then
 	echo "Wordpress not found. Starting installation..."
 	cd /var/www/html
-	wp core download--version=6.4.3--allow-root
+	wp core download --version=6.4.3 --allow-root
 	wp config create \
 		--dbname="${SQL_DATABASE}" \
 		--dbuser="${SQL_USER}" \
