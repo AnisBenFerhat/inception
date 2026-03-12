@@ -48,6 +48,14 @@ services:
     volumes:
       - wordpress_data:/var/www/html
 
+  redis:
+    build:
+      context: ./bonus/redis
+    container_name: redis
+    restart: always
+    networks:
+      - inception
+
 networks:
   inception:
     driver: bridge
