@@ -42,5 +42,8 @@ else
 	echo "WordPress is already configured. Skipping install."
 fi
 
+chown -R www-data:www-data /var/www/html
+chmod -R 775 /var/www/html
+
 echo "Starting PHP-FPM..."
 exec php-fpm8.2 -F
