@@ -8,7 +8,7 @@ END     = \033[0m
 # Project info
 NAME    = inception
 SRCS    = ./srcs/docker-compose.yml
-DATA    = /home/blade/data
+DATA    = /home/$(USER)/data
 
 # Rules
 
