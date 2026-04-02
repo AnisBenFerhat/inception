@@ -92,7 +92,20 @@ services:
       - /sys:/sys:ro
       - /var/lib/docker/:/var/lib/docker:ro
     networks:
-    - inception
+      - inception
+
+  adminer:
+    build:
+      context: ./bonus/adminer
+    container_name: adminer
+    restart: always
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    ports:
+      - "8082:8080"
+    networks:
+      - inception
 
 
 networks:
